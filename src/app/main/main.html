@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <a class="glyphicon glyphicon-plus plus pull-right" ng-href="#/add"></a>
+      <h1>CONTACT LIST</h1>
+      <div class="wrapper">
+        Showing
+        <select class="showing" ng-model="main.itemsPerPage" ng-options="item for item in [] | range:1:15" ng-change="main.changeItemsPerPage()">
+        </select>
+        of {{main.total}}
+        <input type="text" ng-model="main.predicate" ng-model-options="{debounce: 500}" class="search" placeholder="Global search.." />
+      </div>
+      <div bootstrap-table ng-model="main.contacts" edit="main.edit(id)" remove="main.remove(id)" sort="main.sortPredicate"></div>
+      <div pagination page="main.page" page-size="main.itemsPerPage" total="main.total"></div>
+    </div>
+  </div>
+</div>

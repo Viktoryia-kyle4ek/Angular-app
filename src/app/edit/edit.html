@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="my-container">
+    <form class="form-add" name="editForm" ng-submit="vm.edit(vm.currentContact, editForm.$valid)">
+
+      <div class="help-block" ng-messages="editForm.firstname.$error"
+           ng-if="editForm.firstname.$touched">
+        <div ng-messages-include="app/messages.html"></div>
+      </div>
+      <input type="text" id="inputFirstname" name="firstname"
+             class="form-control" placeholder="First name"
+             ng-class="{'has-error' : editForm.firstname.$touched && editForm.firstname.$invalid}"
+             ng-model="vm.currentContact.firstname"
+             ng-maxlength="128"
+             required formnovalidate>
+
+      <div class="help-block" ng-messages="editForm.lastname.$error"
+           ng-if="editForm.lastname.$touched">
+        <div ng-messages-include="app/messages.html"></div>
+      </div>
+      <input type="text" id="inputLastname" name="lastname"
+             class="form-control" placeholder="Last name"
+             ng-class="{'has-error' : editForm.lastname.$touched && editForm.lastname.$invalid}"
+             ng-model="vm.currentContact.lastname"
+             ng-maxlength="128"
+             required formnovalidate>
+
+      <div class="help-block" ng-messages="editForm.company.$error"
+           ng-if="editForm.company.$touched">
+        <div ng-messages-include="app/messages.html"></div>
+      </div>
+      <input type="text" id="inputCompany" name="company"
+             class="form-control" placeholder="Company"
+             ng-class="{'has-error' : editForm.company.$touched && editForm.company.$invalid}"
+             ng-model="vm.currentContact.company"
+             ng-minlength="2"
+             ng-maxlength="128"
+             formnovalidate>
+
+      <div class="help-block" ng-messages="editForm.phone.$error"
+           ng-if="editForm.phone.$touched">
+        <div ng-messages-include="app/messages.html"></div>
+      </div>
+      <input type="text" id="inputPhone" name="phone"
+             class="form-control" placeholder="Phone"
+             ng-class="{'has-error' : editForm.phone.$touched && editForm.phone.$invalid}"
+             ng-model="vm.currentContact.phone"
+             ng-pattern="/^\+(?:[0-9] ?){6,14}[0-9]$/"
+             required formnovalidate>
+
+      <input name="birthdate" rsmdatedropdowns ng-model="vm.currentContact.birthdate"/>
+
+      <button class="btn btn-lg btn-primary btn-block btn-add" type="submit">Save</button>
+    </form>
+    <a href="#/" class="back">
+      Back
+    </a>
+  </div>
+</div>

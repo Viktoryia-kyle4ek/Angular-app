@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="my-container">
+    <form class="form-add" name="addForm" ng-submit="new.add(contact, addForm.$valid)">
+
+      <div class="help-block" ng-messages="addForm.firstname.$error"
+           ng-if="addForm.firstname.$touched">
+        <div ng-messages-include="app/messages.html"></div>
+      </div>
+      <input type="text" id="inputFirstname" name="firstname"
+             class="form-control" placeholder="First name"
+             ng-class="{'has-error' : addForm.firstname.$touched && addForm.firstname.$invalid}"
+             ng-model="contact.firstname"
+             ng-maxlength="128"
+             required formnovalidate>
+
+      <div class="help-block" ng-messages="addForm.lastname.$error"
+           ng-if="addForm.lastname.$touched">
+        <div ng-messages-include="app/messages.html"></div>
+      </div>
+      <input type="text" id="inputLastname" name="lastname"
+             class="form-control" placeholder="Last name"
+             ng-class="{'has-error' : addForm.lastname.$touched && addForm.lastname.$invalid}"
+             ng-model="contact.lastname"
+             ng-maxlength="128"
+             required formnovalidate>
+
+      <div class="help-block" ng-messages="addForm.company.$error"
+           ng-if="addForm.company.$touched">
+        <div ng-messages-include="app/messages.html"></div>
+      </div>
+      <input type="text" id="inputCompany" name="company"
+             class="form-control" placeholder="Company"
+             ng-class="{'has-error' : addForm.company.$touched && addForm.company.$invalid}"
+             ng-model="contact.company"
+             ng-minlength="2"
+             ng-maxlength="128"
+             formnovalidate>
+
+      <div class="help-block" ng-messages="addForm.phone.$error"
+           ng-if="addForm.phone.$touched">
+        <div ng-messages-include="app/messages.html"></div>
+      </div>
+      <input type="text" id="inputPhone" name="phone"
+             class="form-control" placeholder="Phone"
+             ng-class="{'has-error' : addForm.phone.$touched && addForm.phone.$invalid}"
+             ng-model="contact.phone"
+             ng-pattern="/^\+(?:[0-9] ?){6,14}[0-9]$/"
+             required formnovalidate>
+
+      <input name="birthdate" rsmdatedropdowns ng-model="contact.birthdate"/>
+
+      <button class="btn btn-lg btn-primary btn-block btn-add" type="submit">Add</button>
+    </form>
+    <a href="#/" class="back">
+      Back
+    </a>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="table-responsive">
+  <table id="mytable" class="table table-bordred">
+       <thead ng-click="sortByPredicate($event)">
+         <th id="firstname">First Name
+           <span class="glyphicon pull-right" ng-show="predicate === 'firstname'"
+              ng-class="{'glyphicon-chevron-up' : reverse, 'glyphicon-chevron-down' : !reverse}">
+           </span>
+         </th>
+         <th id="lastname">Last Name
+           <span class="glyphicon pull-right" ng-show="predicate === 'lastname'"
+              ng-class="{'glyphicon-chevron-up' : reverse, 'glyphicon-chevron-down' : !reverse}">
+           </span>
+         </th>
+         <th id="company">Company
+          <span class="glyphicon pull-right" ng-show="predicate === 'company'"
+             ng-class="{'glyphicon-chevron-up' : reverse, 'glyphicon-chevron-down' : !reverse}">
+           </span>
+         <th id="phone">Phone
+          <span class="glyphicon pull-right" ng-show="predicate === 'phone'"
+             ng-class="{'glyphicon-chevron-up' : reverse, 'glyphicon-chevron-down' : !reverse}">
+           </span>
+         <th id="birthdate">Birth date
+          <span class="glyphicon pull-right" ng-show="predicate === 'birthdate'"
+             ng-class="{'glyphicon-chevron-up' : reverse, 'glyphicon-chevron-down' : !reverse}">
+           </span>
+         <th>Edit</th>
+         <th>Delete</th>
+       </thead>
+       <tbody>
+         <tr ng-repeat="contact in contacts">
+             <td>{{contact.firstname}}</td>
+             <td>{{contact.lastname}}</td>
+             <td>{{contact.company}}</td>
+             <td>{{contact.phone}}</td>
+             <td>{{contact.birthdate | date: 'dd MMMM yyyy'}}</td>
+             <td><button class="btn btn-primary btn-xs" ng-click="edit({id: contact.id})"><span class="glyphicon glyphicon-pencil"></span></button></td>
+             <td><button class="btn btn-danger btn-xs" ng-click="show(contact)"><span class="glyphicon glyphicon-trash"></span></button></td>
+           </tr>
+       </tbody>
+     </table>
+  </div>

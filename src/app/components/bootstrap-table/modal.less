@@ -1,0 +1,56 @@
+// bower:less
+// endbower
+
+@background-color: rgb(75, 92, 101);
+@header-color: #757f85;
+@text-color: #ffffff;
+@btn-color: rgb(104, 145, 162);
+
+.modal-backdrop {
+  opacity: 0.4;
+}
+
+
+.modal-dialog {
+  margin-top: 200px;
+  opacity: .9;
+}
+
+
+.modal-content {
+  background-color: @text-color;
+  color: @header-color;
+  text-align: center;
+  border-radius: 0;
+  .btn {
+    width: 49%;
+    background-color: @btn-color;
+    color: @text-color;
+    padding: 0px;
+    font-weight: 700;
+    font-size: 14px;
+    height: 36px;
+    border-radius: 0px;
+    border: none;
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: darken(@btn-color, 15%);
+    }
+  }
+  .modal-header {
+    text-align: center;
+    border-bottom: none;
+  }
+  .modal-footer {
+    border-top: none;
+  }
+  .modal-body {
+    span {
+      font-size: 20px;
+    }
+  }
+}
+
+// injector
+// endinjector
